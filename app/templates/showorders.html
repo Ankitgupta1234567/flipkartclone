@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}FlipKart|Orders{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <table class="table table-bordered">
+            <tr>
+                <th>Sr.No</th>
+                <th>OrderId</th>
+                <th>ProductName</th>
+                <th>Product Qty</th>
+                <th>Total Amount Paid</th>
+                <th>Product Photo</th>
+            </tr>
+            {% for x in orderdata %}
+            <tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ x.order.orderid }}</td>
+                <td>{{ x.order.productid.productname }}</td>
+                <td>{{ x.order.qty }}</td>
+                <td>{{ x.order_total }}</td>
+                <td>
+                    <img src="{{ x.order.productid.images.url }}" alt="" width="150px" height="150px">
+                </td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="4"><strong>Total Amount:</strong></td>
+                <td><strong>{{ totalamount }}</strong></td>
+                <td></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+{% endblock %}

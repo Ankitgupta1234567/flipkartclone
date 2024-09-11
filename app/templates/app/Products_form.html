@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}register product{% endblock %}
+{% block body %}
+<div class="conatiner">
+    <div class="row">
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+                
+            </table>
+            <br>
+                <input type="submit" value="register">
+                <a href="/Productlist"><input type="button" value="cancel"></a> 
+        </form>
+    </div>
+</div>
+{% endblock %}
